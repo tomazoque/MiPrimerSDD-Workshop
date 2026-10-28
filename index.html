@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6550af">
+  <title>Curso-PSWE-07</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/src/ui/styles.css">
+  <script type="module" src="/src/ui/app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="brand-header"><span class="brand-mark" aria-hidden="true">✓</span><span>Curso-PSWE-07</span></header>
+    <main>
+      <p id="page-error" class="error-message" role="alert" hidden></p>
+      <section id="list-screen" aria-labelledby="list-heading">
+        <div class="intro"><p class="eyebrow">YOUR DAILY SPACE</p><h1 id="list-heading" tabindex="-1">Your tasks</h1><p class="muted">A little focus. A clearer day.</p></div>
+        <div class="task-card">
+          <div class="toolbar">
+            <div class="filters" role="group" aria-label="Filter tasks">
+              <button type="button" data-filter="All" aria-pressed="true">All</button>
+              <button type="button" data-filter="Pending" aria-pressed="false">Pending</button>
+              <button type="button" data-filter="Done" aria-pressed="false">Done</button>
+            </div>
+            <button id="add-task" type="button" class="button primary"><span aria-hidden="true">+</span> Add task</button>
+          </div>
+          <ul id="task-list" aria-label="Tasks"></ul>
+          <div id="empty-state" class="empty-state" role="status"><span class="empty-symbol" aria-hidden="true">✓</span><h2 id="empty-heading">No tasks yet</h2><p id="empty-description">Start with one small thing. Add your first task above.</p></div>
+        </div>
+        <p class="quiet-note">One task at a time.</p>
+      </section>
+      <section id="detail-screen" aria-labelledby="detail-title" hidden>
+        <button id="back" type="button" class="back-button">← Back to tasks</button>
+        <article class="detail-card">
+          <span id="detail-status" class="status-label">Pending</span>
+          <h1 id="detail-title" tabindex="-1"></h1>
+          <p id="detail-description"></p>
+          <div class="detail-actions">
+            <button id="toggle-task" type="button" class="button primary">Mark as done</button>
+            <button id="edit-task" type="button" class="button secondary">Edit</button>
+            <button id="delete-task" type="button" class="button danger-outline">Delete</button>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+  <dialog id="task-dialog" aria-labelledby="form-heading">
+    <form id="task-form" novalidate>
+      <h2 id="form-heading">Add task</h2><p class="dialog-intro">Make a little space for what needs doing.</p>
+      <label for="task-title">Title</label><input id="task-title" required autocomplete="off" autofocus aria-describedby="title-error">
+      <p id="title-error" class="field-error" role="alert" hidden>Please enter a title.</p>
+      <label for="task-description">Description <span class="optional">(optional)</span></label><textarea id="task-description" rows="4"></textarea>
+      <p id="form-error" class="error-message" role="alert" hidden></p>
+      <div class="dialog-actions"><button id="cancel-form" type="button" class="button secondary">Cancel</button><button type="submit" class="button primary">Save</button></div>
+    </form>
+  </dialog>
+  <dialog id="delete-dialog" aria-labelledby="delete-heading" aria-describedby="delete-description">
+    <h2 id="delete-heading">Delete task?</h2>
+    <p id="delete-description" class="dialog-intro">This permanently removes the task. You can't undo this action.</p>
+    <p id="delete-error" class="error-message" role="alert" hidden></p>
+    <div class="dialog-actions"><button id="cancel-delete" type="button" class="button secondary" autofocus>Cancel</button><button id="confirm-delete" type="button" class="button danger">Delete</button></div>
+  </dialog>
+  <noscript>Enable JavaScript to manage your tasks.</noscript>
+</body>
+</html>
