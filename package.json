@@ -1,0 +1,20 @@
+{
+  "name": "curso-pswe-07",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "lint": "eslint .",
+    "test:unit": "node --test tests/unit/*.test.js",
+    "test:acceptance": "playwright test",
+    "test": "npm run test:unit && npm run test:acceptance"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "eslint": "^10.13.0"
+  }
+}
